@@ -1,4 +1,6 @@
 Randevoo::Application.routes.draw do
+  resources :users
+
   resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.

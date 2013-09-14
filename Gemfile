@@ -22,6 +22,7 @@ group :doc do
 end
 
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'foreman'
   gem 'minitest'
 end

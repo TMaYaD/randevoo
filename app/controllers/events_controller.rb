@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -17,24 +17,20 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.json { render action: 'show', status: :ok, location: @event }
-      else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      render action: 'show', status: :ok, location: @event
+    else
+      render json: @event.errors, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.json { head :ok }
-      else
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+      head :ok
+    else
+      render json: @event.errors, status: :unprocessable_entity
     end
   end
 
@@ -42,9 +38,7 @@ class EventsController < ApplicationController
   # DELETE /events/1.json
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.json { head :ok }
-    end
+    head :ok
   end
 
   private
