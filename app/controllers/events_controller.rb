@@ -19,7 +19,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.json { render action: 'show', status: :created, location: @event }
+        format.json { render action: 'show', status: :ok, location: @event }
       else
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
@@ -43,7 +43,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 
