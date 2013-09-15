@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
 
   respond_to :json
+
+  def current_user
+    @current_user ||= User.where(uuid: params[:user_uuid]).first_or_create
+  end
 end

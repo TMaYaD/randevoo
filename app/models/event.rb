@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  belongs_to :organizer, class_name: 'User'
+  belongs_to :organizer, class_name: 'User', inverse_of: :organizing_events
   has_and_belongs_to_many :users
 
   def timestamp=(t)
