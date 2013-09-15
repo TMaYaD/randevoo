@@ -1,5 +1,6 @@
 class Randevoo.Models.Event extends Backbone.Model
   paramRoot: 'event'
+  urlRoot: '/events'
 
   defaults:
     name: null

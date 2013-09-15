@@ -19,7 +19,11 @@ class Randevoo.Routers.EventsRouter extends Backbone.Router
     $("body").html(@view.render().el)
 
   show: (id) ->
-    event = @events.get(id)
+    event = @events.get id
+
+    unless event
+      event = new Randevoo.Models.Event id: id
+      event.fetch()
 
     @view = new Randevoo.Views.Events.ShowView(model: event)
     $("body").html(@view.render().el)
