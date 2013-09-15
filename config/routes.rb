@@ -1,4 +1,6 @@
 Randevoo::Application.routes.draw do
+  resource :location
+
   resources :users
 
   resources :events
