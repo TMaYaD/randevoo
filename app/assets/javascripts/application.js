@@ -19,3 +19,8 @@
 //= require backbone_datalink
 //= require backbone/randevoo
 //= require_tree .
+
+$(function() {
+	window.router = new Randevoo.Routers.EventsRouter();
+	Backbone.history.start();
+})

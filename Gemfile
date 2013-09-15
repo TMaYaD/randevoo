@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.0'
 
 gem 'coffee-rails', '~> 4.0.0'
+gem 'high_voltage'
 gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'mysql2'
