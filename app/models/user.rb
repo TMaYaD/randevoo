@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :events
-  has_many :organizing_events, class_name: 'Event', inverse_of: :organizer
+  has_many :organizing_events, class_name: 'Event', inverse_of: :organizer, foreign_key: :organizer_id
 
   validates :uuid,  presence: true,
                     uniqueness: true
