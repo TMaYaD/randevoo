@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
                     uniqueness: true
 
   def all_events
-    {
+    OpenStruct.new(
       participating_events: events ,
       organizing_events: organizing_events
-    }
+    )
   end
 end
