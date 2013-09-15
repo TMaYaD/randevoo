@@ -15,6 +15,7 @@ class Event < ActiveRecord::Base
   end
 
   def guests=(guests)
-    self.users = guests.map { |guest| User.where(uuid: guest.uuid).first_or_create(name: guest.name) }
+    self.users = guests.map { |guest| User.where(uuid: guest[:uuid]).first_or_create(name: guest[:name]) }
   end
 end
+

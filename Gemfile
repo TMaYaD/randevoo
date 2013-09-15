@@ -29,4 +29,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'foreman'
   gem 'minitest'
+  gem 'pry'
 end
